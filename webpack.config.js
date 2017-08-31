@@ -25,8 +25,11 @@ var config = {
         new webpack.ProvidePlugin({
             'jQuery': 'jquery',
             'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default'],
             'Tether': 'tether',
-            'window.Tether': 'tether'
+            'window.Tether': 'tether',
+            Util: "exports-loader?Util!bootstrap/js/dist/util",
+            Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown"
         }),
         new webpack.LoaderOptionsPlugin({
             options: {
