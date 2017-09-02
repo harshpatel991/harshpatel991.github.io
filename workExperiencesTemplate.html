@@ -1,0 +1,35 @@
+ <div class="row">
+    <div class="col-md-12">
+        <h2>Work Experience</h2>
+    </div>
+</div>
+ {{#workExperiences}}
+    <div class="row">
+        <div class="col-md-2">
+            <img src="{{logoURL}}"/>
+        </div>
+        <div class="col-md-10">
+            <h4>{{companyName}}</h4>
+            {{#positions}}
+                <div class="row">
+                    <div class="col-md-8">
+                        <b>{{positionTitle}}</b>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-right"><b>{{timeFrame}}</b></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                        {{#description}}
+                            <li>{{.}}</li>
+                        {{/description}}
+                        </ul>
+                    </div>
+                </div>
+            {{/positions}}
+        </div>
+
+    </div>
+{{/workExperiences}}
