@@ -1,11 +1,11 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer');
-var webpack = require('webpack');
-var path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const path = require('path');
 
-var sassLoader = ExtractTextPlugin.extract(['css-loader?sourceMap', 'sass-loader?sourceMap']);
+const sassLoader = ExtractTextPlugin.extract(['css-loader?sourceMap', 'sass-loader?sourceMap']);
 
-var config = {
+const config = {
     entry: {
         app: './index'
     },
@@ -18,6 +18,10 @@ var config = {
             {
                 test: /\.(scss|sass)$/,
                 loader: sassLoader
+            },
+            {
+                test: /\.html$/,
+                loader: 'mustache-loader'
             }
         ]
     },
