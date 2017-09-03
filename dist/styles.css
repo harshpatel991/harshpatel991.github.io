@@ -1,6 +1,11 @@
-.company-logo {
-  max-width: 60%;
+.logo {
   padding-top: 10px; }
+
+.school-logo {
+  max-width: 100%; }
+
+.company-logo {
+  max-width: 60%; }
 
 @media print {
   *,

@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-12">
+        <h2>School</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-center">
+            <span class="align-middle">
+                <img src="./images/{{logoURL}}" class="school-logo logo" onmouseover="this.src='./images/{{logoHoverURL}}';" onmouseout="this.src='./images/{{logoURL}}';" />
+            </span>
+    </div>
+    <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>{{schoolName}}</h4>
+            </div>
+            <div class="col-md-4">
+                <div class="text-right"><b>{{timeFrame}}</b></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    {{#description}}
+                    <li>{{.}}</li>
+                    {{/description}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

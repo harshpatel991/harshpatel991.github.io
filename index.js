@@ -1,8 +1,20 @@
 import './bootstrap/bootstrap';
 import './bootstrap/bootstrap.scss';
 
-const projectsTemplate = require('./projectsTemplate.html');
-const workExperiencesTemplate = require('./workExperiencesTemplate.html');
+const schoolTemplate = require('./templates/schoolTemplate.html');
+const projectsTemplate = require('./templates/projectsTemplate.html');
+const workExperiencesTemplate = require('./templates/workExperiencesTemplate.html');
+
+const schoolHTML = schoolTemplate({
+    schoolName: "University of Illinois at Urbana-Champaign",
+    logoURL: "logo-uiuc-nohue.png",
+    logoHoverURL: "logo-uiuc.png",
+    timeFrame: "May 2011 - May 2015",
+    description: [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
+        "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel."
+    ]
+});
 
 const projectsHTML = projectsTemplate(
     {
@@ -82,5 +94,6 @@ const workExperienceHTML = workExperiencesTemplate(
     }
 );
 
+document.getElementById('school-container').innerHTML = schoolHTML;
 document.getElementById('projects-container').innerHTML = projectsHTML;
 document.getElementById('work-experiences-container').innerHTML = workExperienceHTML;
