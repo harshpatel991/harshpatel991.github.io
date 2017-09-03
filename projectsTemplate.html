@@ -8,12 +8,14 @@
         {{#projectItems}}
             <div class="col-md-4">
                 <div class="card" >
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <img class="card-img-top" src="./images/{{previewImage}}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title">{{projectName}}</h4>
                         <p class="card-text">{{projectDescription}}</p>
-                        <a href="#" class="btn btn-primary">Github &raquo;</a>
-                        <a href="#" class="btn btn-secondary">Project &raquo;</a>
+                        <a href="{{githubURL}}" class="btn btn-primary" target="_blank">Github &raquo;</a>
+                        {{#projectURL}}
+                            <a href="{{projectURL}}" class="btn btn-secondary" target="_blank">Viewnp &raquo;</a>
+                        {{/projectURL}}
                     </div>
                 </div>
             </div>

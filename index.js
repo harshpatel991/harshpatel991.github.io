@@ -10,19 +10,19 @@ const projectsHTML = projectsTemplate(
             {
                 title: "Personal Projects",
                 projectItems: [
-                    { projectName: 'Roast My Game', projectDescription: 'test project description' },
-                    { projectName: 'News Tab', projectDescription: 'test project description' },
-                    { projectName: 'Topic Loop', projectDescription: 'test project description' },
-                    { projectName: 'Tuesday Swap', projectDescription: 'test project description' }
+                    { projectName: 'Roast My Game', previewImage: "preview-roast-my-game.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/clickr", projectURL: "https://roastmygame.com/" },
+                    { projectName: 'News Tab', previewImage: "preview-news-tab.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/rTab", projectURL: "https://chrome.google.com/webstore/detail/news-tab-new-tab-page-rep/cdpnmcehklcfepflojdklfggahnaolid"},
+                    { projectName: 'Topic Loop', previewImage: "preview-topic-loop.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/nupicture", },
+                    { projectName: 'Tuesday Swap', previewImage: "preview-tuesday-swap.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/tuesday-swap" }
                 ]
             },
             {
                 title: "University Projects",
                 projectItems: [
-                    { projectName: 'Fandom', projectDescription: 'test project description' },
-                    { projectName: 'Histogr', projectDescription: 'test project description' },
-                    { projectName: 'Checkin Children', projectDescription: 'test project description' },
-                    { projectName: 'City Clickr', projectDescription: 'test project description' }
+                    { projectName: 'Fandom', previewImage: "preview-fandom.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/fandom-client" },
+                    { projectName: 'Histogr', previewImage: "preview-histogr.png",  projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/histogr" },
+                    { projectName: 'Checkin Children', previewImage: "preview-checkin-children.png",  projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/CheckinChildren" },
+                    { projectName: 'City Clickr', previewImage: "preview-city-clickr.png",  projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/CityClicker/" }
                 ]
             }
         ]
@@ -34,6 +34,8 @@ const workExperienceHTML = workExperiencesTemplate(
         workExperiences: [
             {
                 companyName: "National Instruments",
+                logoURL: "logo-national-instruments-nohue.png",
+                logoHoverURL: "logo-national-instruments.png",
                 positions: [
                     {
                         positionTitle: "Software Engineer Intern",
@@ -48,7 +50,8 @@ const workExperienceHTML = workExperiencesTemplate(
             },
             {
                 companyName: "Bazaarvoice",
-                logoURL: "",
+                logoURL: "logo-bazaarvoice-nohue.png",
+                logoHoverURL: "logo-bazaarvoice.png",
                 positions: [
                     {
                         positionTitle: "Software Engineer Intern",
