@@ -1,5 +1,18 @@
 //Custom variables here
 $card-border-width: 0;
+$border-radius-lg: 0;
+$card-bg: #f8f8f8;
+
+.jumbotron {
+  background: #2b5876;
+  background: -webkit-linear-gradient(to right, #2b5876, #4e4376);
+  background: linear-gradient(to right, #2b5876, #4e4376);
+}
+
+.card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
 .logo {
   padding-top: 10px;
@@ -11,4 +24,12 @@ $card-border-width: 0;
 
 .company-logo {
   max-width: 60%;
+}
+
+.jumbotron {
+  color: #ffffff;
+}
+
+.header-h2 {
+  font-weight: 100;
 }
