@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10344,8 +10344,8 @@ return jQuery;
 
 // This file is for use with Node.js. See dist/ for browser files.
 
-var Hogan = __webpack_require__(11);
-Hogan.Template = __webpack_require__(12).Template;
+var Hogan = __webpack_require__(12);
+Hogan.Template = __webpack_require__(13).Template;
 Hogan.template = Hogan.Template;
 module.exports = Hogan;
 
@@ -10355,16 +10355,206 @@ module.exports = Hogan;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(jQuery) {/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v4.0.0-beta): util.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * --------------------------------------------------------------------------
+ */
+
+const Util = (($) => {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Private TransitionEnd Helpers
+   * ------------------------------------------------------------------------
+   */
+
+  let transition = false
+
+  const MAX_UID = 1000000
+
+  const TransitionEndEvent = {
+    WebkitTransition : 'webkitTransitionEnd',
+    MozTransition    : 'transitionend',
+    OTransition      : 'oTransitionEnd otransitionend',
+    transition       : 'transitionend'
+  }
+
+  // shoutout AngusCroll (https://goo.gl/pxwQGp)
+  function toType(obj) {
+    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
+  }
+
+  function isElement(obj) {
+    return (obj[0] || obj).nodeType
+  }
+
+  function getSpecialTransitionEndEvent() {
+    return {
+      bindType: transition.end,
+      delegateType: transition.end,
+      handle(event) {
+        if ($(event.target).is(this)) {
+          return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
+        }
+        return undefined
+      }
+    }
+  }
+
+  function transitionEndTest() {
+    if (window.QUnit) {
+      return false
+    }
+
+    const el = document.createElement('bootstrap')
+
+    for (const name in TransitionEndEvent) {
+      if (el.style[name] !== undefined) {
+        return {
+          end: TransitionEndEvent[name]
+        }
+      }
+    }
+
+    return false
+  }
+
+  function transitionEndEmulator(duration) {
+    let called = false
+
+    $(this).one(Util.TRANSITION_END, () => {
+      called = true
+    })
+
+    setTimeout(() => {
+      if (!called) {
+        Util.triggerTransitionEnd(this)
+      }
+    }, duration)
+
+    return this
+  }
+
+  function setTransitionEndSupport() {
+    transition = transitionEndTest()
+
+    $.fn.emulateTransitionEnd = transitionEndEmulator
+
+    if (Util.supportsTransitionEnd()) {
+      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent()
+    }
+  }
+
+
+  /**
+   * --------------------------------------------------------------------------
+   * Public Util Api
+   * --------------------------------------------------------------------------
+   */
+
+  const Util = {
+
+    TRANSITION_END: 'bsTransitionEnd',
+
+    getUID(prefix) {
+      do {
+        // eslint-disable-next-line no-bitwise
+        prefix += ~~(Math.random() * MAX_UID) // "~~" acts like a faster Math.floor() here
+      } while (document.getElementById(prefix))
+      return prefix
+    },
+
+    getSelectorFromElement(element) {
+      let selector = element.getAttribute('data-target')
+      if (!selector || selector === '#') {
+        selector = element.getAttribute('href') || ''
+      }
+
+      try {
+        const $selector = $(selector)
+        return $selector.length > 0 ? selector : null
+      } catch (error) {
+        return null
+      }
+    },
+
+    reflow(element) {
+      return element.offsetHeight
+    },
+
+    triggerTransitionEnd(element) {
+      $(element).trigger(transition.end)
+    },
+
+    supportsTransitionEnd() {
+      return Boolean(transition)
+    },
+
+    typeCheckConfig(componentName, config, configTypes) {
+      for (const property in configTypes) {
+        if (configTypes.hasOwnProperty(property)) {
+          const expectedTypes = configTypes[property]
+          const value         = config[property]
+          const valueType     = value && isElement(value) ?
+                                'element' : toType(value)
+
+          if (!new RegExp(expectedTypes).test(valueType)) {
+            throw new Error(
+              `${componentName.toUpperCase()}: ` +
+              `Option "${property}" provided type "${valueType}" ` +
+              `but expected type "${expectedTypes}".`)
+          }
+        }
+      }
+    }
+  }
+
+  setTransitionEndSupport()
+
+  return Util
+
+})(jQuery)
+
+/* harmony default export */ __webpack_exports__["a"] = (Util);
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_bootstrap__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_bootstrap_scss__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bootstrap_bootstrap__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_bootstrap_scss__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bootstrap_bootstrap_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__bootstrap_bootstrap_scss__);
 
 
 
-const schoolTemplate = __webpack_require__(10);
-const projectsTemplate = __webpack_require__(13);
-const workExperiencesTemplate = __webpack_require__(14);
+const schoolTemplate = __webpack_require__(11);
+const projectsTemplate = __webpack_require__(14);
+const workExperiencesTemplate = __webpack_require__(15);
+const techLogoIconsByName = {
+    laravel: "devicon-laravel-plain-wordmark",
+    unity: "icon-unity",
+    mysql: "devicon-mysql-plain-wordmark",
+    postgres: "devicon-postgresql-plain",
+    mongodb: "devicon-mongodb-plain-wordmark",
+    react: "devicon-react-original-wordmark",
+    angular: "devicon-angularjs-plain",
+    node: "devicon-nodejs-plain-wordmark",
+    javascript: "devicon-javascript-plain",
+    php: "devicon-php-plain",
+    bootstrap: "devicon-bootstrap-plain-wordmark",
+    jquery: "devicon-jquery-plain-wordmark",
+    sass: "devicon-sass-original",
+    less: "devicon-less-plain-wordmark",
+    d3: "devicon-d3js-plain",
+    blender: "icon-blender"
+};
 
 const schoolHTML = schoolTemplate({
     schoolName: "University of Illinois at Urbana-Champaign",
@@ -10376,31 +10566,6 @@ const schoolHTML = schoolTemplate({
         "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel."
     ]
 });
-
-const projectsHTML = projectsTemplate(
-    {
-        projects: [
-            {
-                title: "Personal Projects",
-                projectItems: [
-                    { projectName: 'Roast My Game', previewImage: "preview-roast-my-game.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/clickr", projectURL: "https://roastmygame.com/" },
-                    { projectName: 'News Tab', previewImage: "preview-news-tab.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/rTab", projectURL: "https://chrome.google.com/webstore/detail/news-tab-new-tab-page-rep/cdpnmcehklcfepflojdklfggahnaolid"},
-                    { projectName: 'Topic Loop', previewImage: "preview-topic-loop.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/nupicture", },
-                    { projectName: 'Tuesday Swap', previewImage: "preview-tuesday-swap.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/tuesday-swap" }
-                ]
-            },
-            {
-                title: "University Projects",
-                projectItems: [
-                    { projectName: 'Fandom', previewImage: "preview-fandom.png", projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/fandom-client" },
-                    { projectName: 'Histogr', previewImage: "preview-histogr.png",  projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/histogr" },
-                    { projectName: 'Checkin Children', previewImage: "preview-checkin-children.png",  projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/CheckinChildren" },
-                    { projectName: 'City Clickr', previewImage: "preview-city-clickr.png",  projectDescription: 'test project description', githubURL: "https://github.com/harshpatel991/CityClicker/" }
-                ]
-            }
-        ]
-    }
-);
 
 const workExperienceHTML = workExperiencesTemplate(
     {
@@ -10455,22 +10620,100 @@ const workExperienceHTML = workExperiencesTemplate(
     }
 );
 
+const projectsHTML = projectsTemplate(
+    {
+        projects: [
+            {
+                title: "Personal Projects",
+                projectItems: [
+                    {
+                        projectName: 'Roast My Game',
+                        previewImage: "preview-roast-my-game.png",
+                        projectDescription: 'A website for indie game developers to give and get feedback.',
+                        tools: [techLogoIconsByName["laravel"], techLogoIconsByName["mysql"], techLogoIconsByName["less"], techLogoIconsByName["bootstrap"], techLogoIconsByName["jquery"]],
+                        githubURL: "https://github.com/harshpatel991/clickr",
+                        projectURL: "https://roastmygame.com/"
+                    },
+                    {
+                        projectName: 'News Tab',
+                        previewImage: "preview-news-tab.png",
+                        projectDescription: 'A RSS feed reader for Chrome\'s new tab page.',
+                        tools: [techLogoIconsByName["javascript"], techLogoIconsByName["bootstrap"], techLogoIconsByName["jquery"]],
+                        githubURL: "https://github.com/harshpatel991/rTab",
+                        projectURL: "https://chrome.google.com/webstore/detail/news-tab-new-tab-page-rep/cdpnmcehklcfepflojdklfggahnaolid"
+                    },
+                    {
+                        projectName: 'Topic Loop',
+                        previewImage: "preview-topic-loop.png",
+                        projectDescription: 'A site where users can write articles and earn revenue generated by their content.',
+                        tools: [techLogoIconsByName["laravel"], techLogoIconsByName["mysql"], techLogoIconsByName["less"], techLogoIconsByName["bootstrap"], techLogoIconsByName["jquery"]],
+                        githubURL: "https://github.com/harshpatel991/nupicture"
+                    },
+                    {
+                        projectName: 'Tuesday Swap',
+                        previewImage: "preview-tuesday-swap.png",
+                        projectDescription: 'A website for users to T-Mobile Tuesdays to swap codes.',
+                        projectSecondaryDescription: "Currently in progress",
+                        tools: [techLogoIconsByName["react"], techLogoIconsByName["node"], techLogoIconsByName["postgres"], techLogoIconsByName["sass"], techLogoIconsByName["bootstrap"]],
+                        githubURL: "https://github.com/harshpatel991/tuesday-swap"
+                    }
+                ]
+            },
+            {
+                title: "University Projects",
+                projectItems: [
+                    {
+                        projectName: 'Fandom',
+                        previewImage: "preview-fandom.png",
+                        projectDescription: 'test project description',
+                        tools: [techLogoIconsByName["angular"], techLogoIconsByName["node"], techLogoIconsByName["mongodb"]],
+                        githubURL: "https://github.com/harshpatel991/fandom-client"
+                    },
+                    {
+                        projectName: 'Histogr',
+                        previewImage: "preview-histogr.png",
+                        projectDescription: 'test project description',
+                        tools: [techLogoIconsByName["javascript"], techLogoIconsByName["d3"], techLogoIconsByName["jquery"]],
+                        githubURL: "https://github.com/harshpatel991/histogr"
+                    },
+                    {
+                        projectName: 'Checkin Children',
+                        previewImage: "preview-checkin-children.png",
+                        projectDescription: 'test project description',
+                        tools: [techLogoIconsByName["php"], techLogoIconsByName["mysql"], techLogoIconsByName["bootstrap"], techLogoIconsByName["jquery"]],
+                        githubURL: "https://github.com/harshpatel991/CheckinChildren"
+                    },
+                    {
+                        projectName: 'City Clickr',
+                        previewImage: "preview-city-clickr.png",
+                        projectDescription: 'test project description',
+                        tools: [techLogoIconsByName["unity"], techLogoIconsByName["blender"]],
+                        githubURL: "https://github.com/harshpatel991/CityClicker/"
+                    }
+                ]
+            }
+        ]
+    }
+);
+
 document.getElementById('school-container').innerHTML = schoolHTML;
-document.getElementById('projects-container').innerHTML = projectsHTML;
 document.getElementById('work-experiences-container').innerHTML = workExperienceHTML;
+document.getElementById('projects-container').innerHTML = projectsHTML;
+
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_bootstrap_js_src_button__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_bootstrap_js_src_dropdown__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_bootstrap_js_src_button__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_bootstrap_js_src_collapse__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__node_modules_bootstrap_js_src_dropdown__ = __webpack_require__(7);
 // To enable additional Bootstrap modules, uncomment the appropriate line below
 // import "../node_modules/bootstrap/js/src/alert";
 
 // import "../node_modules/bootstrap/js/src/carousel";
-// import "../node_modules/bootstrap/js/src/collapse";
+
 
 // import "../node_modules/bootstrap/js/src/modal";
 // import "../node_modules/bootstrap/js/src/popover";
@@ -10479,7 +10722,7 @@ document.getElementById('work-experiences-container').innerHTML = workExperience
 // import "../node_modules/bootstrap/js/src/tooltip";
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10673,11 +10916,416 @@ const Button = (($) => {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(Popper, jQuery) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(8);
+/* WEBPACK VAR INJECTION */(function(jQuery) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(2);
+
+
+
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap (v4.0.0-beta): collapse.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * --------------------------------------------------------------------------
+ */
+
+const Collapse = (($) => {
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
+  const NAME                = 'collapse'
+  const VERSION             = '4.0.0-beta'
+  const DATA_KEY            = 'bs.collapse'
+  const EVENT_KEY           = `.${DATA_KEY}`
+  const DATA_API_KEY        = '.data-api'
+  const JQUERY_NO_CONFLICT  = $.fn[NAME]
+  const TRANSITION_DURATION = 600
+
+  const Default = {
+    toggle : true,
+    parent : ''
+  }
+
+  const DefaultType = {
+    toggle : 'boolean',
+    parent : 'string'
+  }
+
+  const Event = {
+    SHOW           : `show${EVENT_KEY}`,
+    SHOWN          : `shown${EVENT_KEY}`,
+    HIDE           : `hide${EVENT_KEY}`,
+    HIDDEN         : `hidden${EVENT_KEY}`,
+    CLICK_DATA_API : `click${EVENT_KEY}${DATA_API_KEY}`
+  }
+
+  const ClassName = {
+    SHOW       : 'show',
+    COLLAPSE   : 'collapse',
+    COLLAPSING : 'collapsing',
+    COLLAPSED  : 'collapsed'
+  }
+
+  const Dimension = {
+    WIDTH  : 'width',
+    HEIGHT : 'height'
+  }
+
+  const Selector = {
+    ACTIVES     : '.show, .collapsing',
+    DATA_TOGGLE : '[data-toggle="collapse"]'
+  }
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Class Definition
+   * ------------------------------------------------------------------------
+   */
+
+  class Collapse {
+
+    constructor(element, config) {
+      this._isTransitioning = false
+      this._element         = element
+      this._config          = this._getConfig(config)
+      this._triggerArray    = $.makeArray($(
+        `[data-toggle="collapse"][href="#${element.id}"],` +
+        `[data-toggle="collapse"][data-target="#${element.id}"]`
+      ))
+      const tabToggles = $(Selector.DATA_TOGGLE)
+      for (let i = 0; i < tabToggles.length; i++) {
+        const elem = tabToggles[i]
+        const selector = __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].getSelectorFromElement(elem)
+        if (selector !== null && $(selector).filter(element).length > 0) {
+          this._triggerArray.push(elem)
+        }
+      }
+
+      this._parent = this._config.parent ? this._getParent() : null
+
+      if (!this._config.parent) {
+        this._addAriaAndCollapsedClass(this._element, this._triggerArray)
+      }
+
+      if (this._config.toggle) {
+        this.toggle()
+      }
+    }
+
+
+    // getters
+
+    static get VERSION() {
+      return VERSION
+    }
+
+    static get Default() {
+      return Default
+    }
+
+
+    // public
+
+    toggle() {
+      if ($(this._element).hasClass(ClassName.SHOW)) {
+        this.hide()
+      } else {
+        this.show()
+      }
+    }
+
+    show() {
+      if (this._isTransitioning ||
+        $(this._element).hasClass(ClassName.SHOW)) {
+        return
+      }
+
+      let actives
+      let activesData
+
+      if (this._parent) {
+        actives = $.makeArray($(this._parent).children().children(Selector.ACTIVES))
+        if (!actives.length) {
+          actives = null
+        }
+      }
+
+      if (actives) {
+        activesData = $(actives).data(DATA_KEY)
+        if (activesData && activesData._isTransitioning) {
+          return
+        }
+      }
+
+      const startEvent = $.Event(Event.SHOW)
+      $(this._element).trigger(startEvent)
+      if (startEvent.isDefaultPrevented()) {
+        return
+      }
+
+      if (actives) {
+        Collapse._jQueryInterface.call($(actives), 'hide')
+        if (!activesData) {
+          $(actives).data(DATA_KEY, null)
+        }
+      }
+
+      const dimension = this._getDimension()
+
+      $(this._element)
+        .removeClass(ClassName.COLLAPSE)
+        .addClass(ClassName.COLLAPSING)
+
+      this._element.style[dimension] = 0
+
+      if (this._triggerArray.length) {
+        $(this._triggerArray)
+          .removeClass(ClassName.COLLAPSED)
+          .attr('aria-expanded', true)
+      }
+
+      this.setTransitioning(true)
+
+      const complete = () => {
+        $(this._element)
+          .removeClass(ClassName.COLLAPSING)
+          .addClass(ClassName.COLLAPSE)
+          .addClass(ClassName.SHOW)
+
+        this._element.style[dimension] = ''
+
+        this.setTransitioning(false)
+
+        $(this._element).trigger(Event.SHOWN)
+      }
+
+      if (!__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].supportsTransitionEnd()) {
+        complete()
+        return
+      }
+
+      const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1)
+      const scrollSize           = `scroll${capitalizedDimension}`
+
+      $(this._element)
+        .one(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].TRANSITION_END, complete)
+        .emulateTransitionEnd(TRANSITION_DURATION)
+
+      this._element.style[dimension] = `${this._element[scrollSize]}px`
+    }
+
+    hide() {
+      if (this._isTransitioning ||
+        !$(this._element).hasClass(ClassName.SHOW)) {
+        return
+      }
+
+      const startEvent = $.Event(Event.HIDE)
+      $(this._element).trigger(startEvent)
+      if (startEvent.isDefaultPrevented()) {
+        return
+      }
+
+      const dimension       = this._getDimension()
+
+      this._element.style[dimension] = `${this._element.getBoundingClientRect()[dimension]}px`
+
+      __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].reflow(this._element)
+
+      $(this._element)
+        .addClass(ClassName.COLLAPSING)
+        .removeClass(ClassName.COLLAPSE)
+        .removeClass(ClassName.SHOW)
+
+      if (this._triggerArray.length) {
+        for (let i = 0; i < this._triggerArray.length; i++) {
+          const trigger = this._triggerArray[i]
+          const selector = __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].getSelectorFromElement(trigger)
+          if (selector !== null) {
+            const $elem = $(selector)
+            if (!$elem.hasClass(ClassName.SHOW)) {
+              $(trigger).addClass(ClassName.COLLAPSED)
+                   .attr('aria-expanded', false)
+            }
+          }
+        }
+      }
+
+      this.setTransitioning(true)
+
+      const complete = () => {
+        this.setTransitioning(false)
+        $(this._element)
+          .removeClass(ClassName.COLLAPSING)
+          .addClass(ClassName.COLLAPSE)
+          .trigger(Event.HIDDEN)
+      }
+
+      this._element.style[dimension] = ''
+
+      if (!__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].supportsTransitionEnd()) {
+        complete()
+        return
+      }
+
+      $(this._element)
+        .one(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].TRANSITION_END, complete)
+        .emulateTransitionEnd(TRANSITION_DURATION)
+    }
+
+    setTransitioning(isTransitioning) {
+      this._isTransitioning = isTransitioning
+    }
+
+    dispose() {
+      $.removeData(this._element, DATA_KEY)
+
+      this._config          = null
+      this._parent          = null
+      this._element         = null
+      this._triggerArray    = null
+      this._isTransitioning = null
+    }
+
+
+    // private
+
+    _getConfig(config) {
+      config = $.extend({}, Default, config)
+      config.toggle = Boolean(config.toggle) // coerce string values
+      __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].typeCheckConfig(NAME, config, DefaultType)
+      return config
+    }
+
+    _getDimension() {
+      const hasWidth = $(this._element).hasClass(Dimension.WIDTH)
+      return hasWidth ? Dimension.WIDTH : Dimension.HEIGHT
+    }
+
+    _getParent() {
+      const parent   = $(this._config.parent)[0]
+      const selector =
+        `[data-toggle="collapse"][data-parent="${this._config.parent}"]`
+
+      $(parent).find(selector).each((i, element) => {
+        this._addAriaAndCollapsedClass(
+          Collapse._getTargetFromElement(element),
+          [element]
+        )
+      })
+
+      return parent
+    }
+
+    _addAriaAndCollapsedClass(element, triggerArray) {
+      if (element) {
+        const isOpen = $(element).hasClass(ClassName.SHOW)
+
+        if (triggerArray.length) {
+          $(triggerArray)
+            .toggleClass(ClassName.COLLAPSED, !isOpen)
+            .attr('aria-expanded', isOpen)
+        }
+      }
+    }
+
+
+    // static
+
+    static _getTargetFromElement(element) {
+      const selector = __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].getSelectorFromElement(element)
+      return selector ? $(selector)[0] : null
+    }
+
+    static _jQueryInterface(config) {
+      return this.each(function () {
+        const $this   = $(this)
+        let data      = $this.data(DATA_KEY)
+        const _config = $.extend(
+          {},
+          Default,
+          $this.data(),
+          typeof config === 'object' && config
+        )
+
+        if (!data && _config.toggle && /show|hide/.test(config)) {
+          _config.toggle = false
+        }
+
+        if (!data) {
+          data = new Collapse(this, _config)
+          $this.data(DATA_KEY, data)
+        }
+
+        if (typeof config === 'string') {
+          if (data[config] === undefined) {
+            throw new Error(`No method named "${config}"`)
+          }
+          data[config]()
+        }
+      })
+    }
+
+  }
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * Data Api implementation
+   * ------------------------------------------------------------------------
+   */
+
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    if (!/input|textarea/i.test(event.target.tagName)) {
+      event.preventDefault()
+    }
+
+    const $trigger = $(this)
+    const selector = __WEBPACK_IMPORTED_MODULE_0__util__["a" /* default */].getSelectorFromElement(this)
+    $(selector).each(function () {
+      const $target = $(this)
+      const data    = $target.data(DATA_KEY)
+      const config  = data ? 'toggle' : $trigger.data()
+      Collapse._jQueryInterface.call($target, config)
+    })
+  })
+
+
+  /**
+   * ------------------------------------------------------------------------
+   * jQuery
+   * ------------------------------------------------------------------------
+   */
+
+  $.fn[NAME]             = Collapse._jQueryInterface
+  $.fn[NAME].Constructor = Collapse
+  $.fn[NAME].noConflict  = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT
+    return Collapse._jQueryInterface
+  }
+
+  return Collapse
+
+})(jQuery)
+
+/* unused harmony default export */ var _unused_webpack_default_export = (Collapse);
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(Popper, jQuery) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(2);
 /* global Popper */
 
 
@@ -11129,10 +11777,10 @@ const Dropdown = (($) => {
 
 /* unused harmony default export */ var _unused_webpack_default_export = (Dropdown);
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)["default"], __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(8)["default"], __webpack_require__(0)))
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13580,10 +14228,10 @@ Popper.Defaults = Defaults;
 /* harmony default export */ __webpack_exports__["default"] = (Popper);
 //# sourceMappingURL=popper.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(9)))
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports) {
 
 var g;
@@ -13610,192 +14258,20 @@ module.exports = g;
 
 
 /***/ }),
-/* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(jQuery) {/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.0.0-beta): util.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
-
-const Util = (($) => {
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Private TransitionEnd Helpers
-   * ------------------------------------------------------------------------
-   */
-
-  let transition = false
-
-  const MAX_UID = 1000000
-
-  const TransitionEndEvent = {
-    WebkitTransition : 'webkitTransitionEnd',
-    MozTransition    : 'transitionend',
-    OTransition      : 'oTransitionEnd otransitionend',
-    transition       : 'transitionend'
-  }
-
-  // shoutout AngusCroll (https://goo.gl/pxwQGp)
-  function toType(obj) {
-    return {}.toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase()
-  }
-
-  function isElement(obj) {
-    return (obj[0] || obj).nodeType
-  }
-
-  function getSpecialTransitionEndEvent() {
-    return {
-      bindType: transition.end,
-      delegateType: transition.end,
-      handle(event) {
-        if ($(event.target).is(this)) {
-          return event.handleObj.handler.apply(this, arguments) // eslint-disable-line prefer-rest-params
-        }
-        return undefined
-      }
-    }
-  }
-
-  function transitionEndTest() {
-    if (window.QUnit) {
-      return false
-    }
-
-    const el = document.createElement('bootstrap')
-
-    for (const name in TransitionEndEvent) {
-      if (el.style[name] !== undefined) {
-        return {
-          end: TransitionEndEvent[name]
-        }
-      }
-    }
-
-    return false
-  }
-
-  function transitionEndEmulator(duration) {
-    let called = false
-
-    $(this).one(Util.TRANSITION_END, () => {
-      called = true
-    })
-
-    setTimeout(() => {
-      if (!called) {
-        Util.triggerTransitionEnd(this)
-      }
-    }, duration)
-
-    return this
-  }
-
-  function setTransitionEndSupport() {
-    transition = transitionEndTest()
-
-    $.fn.emulateTransitionEnd = transitionEndEmulator
-
-    if (Util.supportsTransitionEnd()) {
-      $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent()
-    }
-  }
-
-
-  /**
-   * --------------------------------------------------------------------------
-   * Public Util Api
-   * --------------------------------------------------------------------------
-   */
-
-  const Util = {
-
-    TRANSITION_END: 'bsTransitionEnd',
-
-    getUID(prefix) {
-      do {
-        // eslint-disable-next-line no-bitwise
-        prefix += ~~(Math.random() * MAX_UID) // "~~" acts like a faster Math.floor() here
-      } while (document.getElementById(prefix))
-      return prefix
-    },
-
-    getSelectorFromElement(element) {
-      let selector = element.getAttribute('data-target')
-      if (!selector || selector === '#') {
-        selector = element.getAttribute('href') || ''
-      }
-
-      try {
-        const $selector = $(selector)
-        return $selector.length > 0 ? selector : null
-      } catch (error) {
-        return null
-      }
-    },
-
-    reflow(element) {
-      return element.offsetHeight
-    },
-
-    triggerTransitionEnd(element) {
-      $(element).trigger(transition.end)
-    },
-
-    supportsTransitionEnd() {
-      return Boolean(transition)
-    },
-
-    typeCheckConfig(componentName, config, configTypes) {
-      for (const property in configTypes) {
-        if (configTypes.hasOwnProperty(property)) {
-          const expectedTypes = configTypes[property]
-          const value         = config[property]
-          const valueType     = value && isElement(value) ?
-                                'element' : toType(value)
-
-          if (!new RegExp(expectedTypes).test(valueType)) {
-            throw new Error(
-              `${componentName.toUpperCase()}: ` +
-              `Option "${property}" provided type "${valueType}" ` +
-              `but expected type "${expectedTypes}".`)
-          }
-        }
-      }
-    }
-  }
-
-  setTransitionEndSupport()
-
-  return Util
-
-})(jQuery)
-
-/* harmony default export */ __webpack_exports__["a"] = (Util);
-
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
-
-/***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var H = __webpack_require__(1);
 module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<div class=\"row\">");t.b("\n" + i);t.b("    <div class=\"col-md-12\">");t.b("\n" + i);t.b("        <h2>School</h2>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("</div>");t.b("\n");t.b("\n" + i);t.b("<div class=\"row\">");t.b("\n" + i);t.b("    <div class=\"col-md-2 text-center\">");t.b("\n" + i);t.b("            <span class=\"align-middle\">");t.b("\n" + i);t.b("                <img src=\"./images/");t.b(t.v(t.f("logoURL",c,p,0)));t.b("\" class=\"school-logo logo\" onmouseover=\"this.src='./images/");t.b(t.v(t.f("logoHoverURL",c,p,0)));t.b("';\" onmouseout=\"this.src='./images/");t.b(t.v(t.f("logoURL",c,p,0)));t.b("';\" />");t.b("\n" + i);t.b("            </span>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("    <div class=\"col-md-10\">");t.b("\n" + i);t.b("        <div class=\"row\">");t.b("\n" + i);t.b("            <div class=\"col-md-8\">");t.b("\n" + i);t.b("                <h4>");t.b(t.v(t.f("schoolName",c,p,0)));t.b("</h4>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("            <div class=\"col-md-4\">");t.b("\n" + i);t.b("                <div class=\"text-right\"><b>");t.b(t.v(t.f("timeFrame",c,p,0)));t.b("</b></div>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("        <div class=\"row\">");t.b("\n" + i);t.b("            <div class=\"col-md-12\">");t.b("\n" + i);t.b("                <ul>");t.b("\n" + i);if(t.s(t.f("description",c,p,1),c,p,0,794,850,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                    <li>");t.b(t.v(t.d(".",c,p,0)));t.b("</li>");t.b("\n" + i);});c.pop();}t.b("                </ul>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("    </div>");t.b("\n");t.b("\n" + i);t.b("</div>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<div class=\"row\">\n    <div class=\"col-md-12\">\n        <h2>School</h2>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-md-2 text-center\">\n            <span class=\"align-middle\">\n                <img src=\"./images/{{logoURL}}\" class=\"school-logo logo\" onmouseover=\"this.src='./images/{{logoHoverURL}}';\" onmouseout=\"this.src='./images/{{logoURL}}';\" />\n            </span>\n    </div>\n    <div class=\"col-md-10\">\n        <div class=\"row\">\n            <div class=\"col-md-8\">\n                <h4>{{schoolName}}</h4>\n            </div>\n            <div class=\"col-md-4\">\n                <div class=\"text-right\"><b>{{timeFrame}}</b></div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <ul>\n                    {{#description}}\n                    <li>{{.}}</li>\n                    {{/description}}\n                </ul>\n            </div>\n        </div>\n    </div>\n\n</div>\n", H);return T.render.apply(T, arguments); };
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14224,7 +14700,7 @@ module.exports = function() { var T = new H.Template({code: function (c,p,i) { v
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14571,14 +15047,14 @@ var Hogan = {};
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var H = __webpack_require__(1);
-module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(t.s(t.f("projects",c,p,1),c,p,0,13,938,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("    <div class=\"row\">");t.b("\n" + i);t.b("        <div class=\"col-md-12\">");t.b("\n" + i);t.b("            <h2>");t.b(t.v(t.f("title",c,p,0)));t.b("</h2>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("    <div class=\"row\">");t.b("\n" + i);if(t.s(t.f("projectItems",c,p,1),c,p,0,172,904,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("            <div class=\"col-md-4\">");t.b("\n" + i);t.b("                <div class=\"card\" >");t.b("\n" + i);t.b("                    <img class=\"card-img-top\" src=\"./images/");t.b(t.v(t.f("previewImage",c,p,0)));t.b("\" alt=\"Card image cap\">");t.b("\n" + i);t.b("                    <div class=\"card-body\">");t.b("\n" + i);t.b("                        <h4 class=\"card-title\">");t.b(t.v(t.f("projectName",c,p,0)));t.b("</h4>");t.b("\n" + i);t.b("                        <p class=\"card-text\">");t.b(t.v(t.f("projectDescription",c,p,0)));t.b("</p>");t.b("\n" + i);t.b("                        <a href=\"");t.b(t.v(t.f("githubURL",c,p,0)));t.b("\" class=\"btn btn-primary\" target=\"_blank\">Github &raquo;</a>");t.b("\n" + i);if(t.s(t.f("projectURL",c,p,1),c,p,0,674,811,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                            <a href=\"");t.b(t.v(t.f("projectURL",c,p,0)));t.b("\" class=\"btn btn-secondary\" target=\"_blank\">View &raquo;</a>");t.b("\n" + i);});c.pop();}t.b("                    </div>");t.b("\n" + i);t.b("                </div>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);});c.pop();}t.b("    </div>");t.b("\n" + i);t.b("<hr>");t.b("\n" + i);});c.pop();}return t.fl(); },partials: {}, subs: {  }}, "{{#projects}}\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <h2>{{title}}</h2>\n        </div>\n    </div>\n    <div class=\"row\">\n        {{#projectItems}}\n            <div class=\"col-md-4\">\n                <div class=\"card\" >\n                    <img class=\"card-img-top\" src=\"./images/{{previewImage}}\" alt=\"Card image cap\">\n                    <div class=\"card-body\">\n                        <h4 class=\"card-title\">{{projectName}}</h4>\n                        <p class=\"card-text\">{{projectDescription}}</p>\n                        <a href=\"{{githubURL}}\" class=\"btn btn-primary\" target=\"_blank\">Github &raquo;</a>\n                        {{#projectURL}}\n                            <a href=\"{{projectURL}}\" class=\"btn btn-secondary\" target=\"_blank\">View &raquo;</a>\n                        {{/projectURL}}\n                    </div>\n                </div>\n            </div>\n        {{/projectItems}}\n    </div>\n<hr>\n{{/projects}}", H);return T.render.apply(T, arguments); };
+module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");if(t.s(t.f("projects",c,p,1),c,p,0,13,1131,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("    <div class=\"row\">");t.b("\n" + i);t.b("        <div class=\"col-md-12\">");t.b("\n" + i);t.b("            <h2>");t.b(t.v(t.f("title",c,p,0)));t.b("</h2>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("    <div class=\"row\">");t.b("\n" + i);if(t.s(t.f("projectItems",c,p,1),c,p,0,172,1097,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("            <div class=\"col-md-4\">");t.b("\n" + i);t.b("                <div class=\"card\" >");t.b("\n" + i);t.b("                    <img class=\"card-img-top\" src=\"./images/");t.b(t.v(t.f("previewImage",c,p,0)));t.b("\" alt=\"Card image cap\">");t.b("\n" + i);t.b("                    <div class=\"card-body\">");t.b("\n" + i);t.b("                        <h4 class=\"card-title\">");t.b(t.v(t.f("projectName",c,p,0)));t.b("</h4>");t.b("\n" + i);t.b("                        <p class=\"card-text\">");t.b(t.v(t.f("projectDescription",c,p,0)));t.b("</p>");t.b("\n");t.b("\n" + i);t.b("                        <h1>");t.b("\n" + i);if(t.s(t.f("tools",c,p,1),c,p,0,596,679,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                                <i class=\"");t.b(t.v(t.d(".",c,p,0)));t.b("\"></i>");t.b("\n" + i);});c.pop();}t.b("                        </h1>");t.b("\n" + i);t.b("                        <a href=\"");t.b(t.v(t.f("githubURL",c,p,0)));t.b("\" class=\"btn btn-primary\" target=\"_blank\">Github &raquo;</a>");t.b("\n" + i);if(t.s(t.f("projectURL",c,p,1),c,p,0,866,1003,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                            <a href=\"");t.b(t.v(t.f("projectURL",c,p,0)));t.b("\" class=\"btn btn-secondary\" target=\"_blank\">View &raquo;</a>");t.b("\n" + i);});c.pop();}t.b("\n" + i);t.b("                    </div>");t.b("\n" + i);t.b("                </div>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);});c.pop();}t.b("    </div>");t.b("\n" + i);t.b("<hr>");t.b("\n" + i);});c.pop();}return t.fl(); },partials: {}, subs: {  }}, "{{#projects}}\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <h2>{{title}}</h2>\n        </div>\n    </div>\n    <div class=\"row\">\n        {{#projectItems}}\n            <div class=\"col-md-4\">\n                <div class=\"card\" >\n                    <img class=\"card-img-top\" src=\"./images/{{previewImage}}\" alt=\"Card image cap\">\n                    <div class=\"card-body\">\n                        <h4 class=\"card-title\">{{projectName}}</h4>\n                        <p class=\"card-text\">{{projectDescription}}</p>\n\n                        <h1>\n                            {{#tools}}\n                                <i class=\"{{.}}\"></i>\n                            {{/tools}}\n                        </h1>\n                        <a href=\"{{githubURL}}\" class=\"btn btn-primary\" target=\"_blank\">Github &raquo;</a>\n                        {{#projectURL}}\n                            <a href=\"{{projectURL}}\" class=\"btn btn-secondary\" target=\"_blank\">View &raquo;</a>\n                        {{/projectURL}}\n\n                    </div>\n                </div>\n            </div>\n        {{/projectItems}}\n    </div>\n<hr>\n{{/projects}}", H);return T.render.apply(T, arguments); };
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var H = __webpack_require__(1);

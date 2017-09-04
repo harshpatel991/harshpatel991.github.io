@@ -12,6 +12,11 @@
                     <div class="card-body">
                         <h4 class="card-title">{{projectName}}</h4>
                         <p class="card-text">{{projectDescription}}</p>
+                        <h1>
+                            {{#tools}}
+                                <i class="{{.}}"></i>
+                            {{/tools}}
+                        </h1>
                         <a href="{{githubURL}}" class="btn btn-primary" target="_blank">Github &raquo;</a>
                         {{#projectURL}}
                             <a href="{{projectURL}}" class="btn btn-secondary" target="_blank">View &raquo;</a>
