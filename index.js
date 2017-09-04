@@ -132,28 +132,28 @@ const projectsHTML = projectsTemplate(
                     {
                         projectName: 'Fandom',
                         previewImage: "preview-fandom.png",
-                        projectDescription: 'test project description',
+                        projectDescription: 'A website for users to discuss TV shows.',
                         tools: [techLogoIconsByName["angular"], techLogoIconsByName["node"], techLogoIconsByName["mongodb"]],
                         githubURL: "https://github.com/harshpatel991/fandom-client"
                     },
                     {
                         projectName: 'Histogr',
                         previewImage: "preview-histogr.png",
-                        projectDescription: 'test project description',
+                        projectDescription: 'A chrome extension for visualizing browsing history and blocking websites.',
                         tools: [techLogoIconsByName["javascript"], techLogoIconsByName["d3"], techLogoIconsByName["jquery"]],
                         githubURL: "https://github.com/harshpatel991/histogr"
                     },
                     {
                         projectName: 'Checkin Children',
                         previewImage: "preview-checkin-children.png",
-                        projectDescription: 'test project description',
+                        projectDescription: 'A multi-tenant SaaS for daycare centers to check in students and notify parents via text and email',
                         tools: [techLogoIconsByName["php"], techLogoIconsByName["mysql"], techLogoIconsByName["bootstrap"], techLogoIconsByName["jquery"]],
                         githubURL: "https://github.com/harshpatel991/CheckinChildren"
                     },
                     {
                         projectName: 'City Clickr',
                         previewImage: "preview-city-clickr.png",
-                        projectDescription: 'test project description',
+                        projectDescription: 'A 3D world building clicker game.',
                         tools: [techLogoIconsByName["unity"], techLogoIconsByName["blender"]],
                         githubURL: "https://github.com/harshpatel991/CityClicker/"
                     }
