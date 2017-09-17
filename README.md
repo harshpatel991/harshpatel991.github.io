@@ -1,3 +1,3 @@
 ## My Portfolio Site
 
-[View live](harshpatel991.github.io)
+[View live](http://harshpatel991.github.io)
