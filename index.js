@@ -119,7 +119,7 @@ const projectsHTML = projectsTemplate(
                     {
                         projectName: 'Tuesday Swap',
                         previewImage: "preview-tuesday-swap.png",
-                        projectDescription: 'A website for users to T-Mobile Tuesdays to swap codes.',
+                        projectDescription: 'A website for users of T-Mobile Tuesdays to swap codes.',
                         projectSecondaryDescription: "Currently in progress",
                         tools: [techLogoIconsByName["react"], techLogoIconsByName["node"], techLogoIconsByName["postgres"], techLogoIconsByName["sass"], techLogoIconsByName["bootstrap"]],
                         githubURL: "https://github.com/harshpatel991/tuesday-swap"
@@ -132,7 +132,7 @@ const projectsHTML = projectsTemplate(
                     {
                         projectName: 'Fandom',
                         previewImage: "preview-fandom.png",
-                        projectDescription: 'A website for users to discuss TV shows.',
+                        projectDescription: 'A website for users to discuss TV shows. Features threaded and upvote/downvote comments section.',
                         tools: [techLogoIconsByName["angular"], techLogoIconsByName["node"], techLogoIconsByName["mongodb"]],
                         githubURL: "https://github.com/harshpatel991/fandom-client"
                     },

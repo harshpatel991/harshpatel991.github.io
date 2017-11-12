@@ -1,0 +1,55 @@
+.jumbotron {
+  background: #2b5876;
+  background: -webkit-linear-gradient(to right, #4c8cc2, #7467ab);
+  background: linear-gradient(to right, #4c8cc2, #7467ab);
+  border-radius: 0;
+}
+
+.card {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.image-wrapper {
+  background-color: #000;
+  height: 100%;
+  width: 100%;
+}
+
+.fade-on-hover {
+  transition: opacity .25s ease-in;
+  -moz-transition: opacity .25s ease-in;
+  -webkit-transition: opacity .25s ease-in;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.logo {
+  padding-top: 10px;
+}
+
+.school-logo {
+  max-width: 100%;
+}
+
+.company-logo {
+  max-width: 60%;
+}
+
+.jumbotron {
+  color: #ffffff;
+}
+
+.header-h2 {
+  font-weight: 100;
+}
+
+.devicon {
+  color: #868e95;
+}
+
+footer {
+  padding: 30px 0;
+}

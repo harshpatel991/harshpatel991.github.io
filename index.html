@@ -49,20 +49,24 @@
     <hr>
     <div id="projects-container">Loading</div>
 
-    <div class="row">
-        <div class="col-md-4">
-            Github
-        </div>
-        <div class="col-md-4">
-            Email
-        </div>
-        <div class="col-md-4">
-            Show Phone Number
-        </div>
-    </div>
-
     <footer>
-        <p>Harsh Patel</p>
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h5><a href="https://github.com/harshpatel991/">Github</a></h5>
+            </div>
+            <div class="col-md-6 text-center">
+                <h5><a href="" id="mail-link">Email</a></h5>
+                <!--Obfuscate for bots-->
+                <script>
+                    const localPart = 'harsh.patel991';
+                    const domainPart = '@' + 'gmail.com';
+                    document.getElementById('mail-link').onclick = function() {
+                        window.location.href = 'mailto:' + localPart + domainPart;
+                        return false;
+                    };
+                </script>
+            </div>
+        </div>
     </footer>
 </div> <!-- /container -->
 
