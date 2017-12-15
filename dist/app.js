@@ -10561,10 +10561,20 @@ const schoolHTML = schoolTemplate({
     logoURL: "logo-uiuc-nohue.png",
     logoHoverURL: "logo-uiuc.png",
     timeFrame: "May 2011 - May 2015",
-    description: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-        "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel."
-    ]
+    description: "Bachelor of Science in Computer Science - GPA: 3.60",
+    relevantCoursework: {
+        columnOne: [
+            "Distributed Systems",
+            "Introduction to Data Mining",
+            "Cloud Computing",
+            "Computer Security I & II"
+        ],
+        columnTwo: [
+            "Database Systems",
+            "User Interface Design",
+            "Art and Science of Web Programming"
+        ]
+    }
 });
 
 const workExperienceHTML = workExperiencesTemplate(
@@ -10579,9 +10589,7 @@ const workExperienceHTML = workExperiencesTemplate(
                         positionTitle: "Software Engineer Intern",
                         timeFrame: "Summer 2013",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-                            "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel.",
-                            "Cras sed orci sit amet tortor condimentum egestas. Sed vehicula mollis eros, ut faucibus erat. Praesent in blandit erat, quis mattis magna. Etiam fringilla metus sit amet mollis pulvinar."
+                            "Collaborated with a group of software engineers to develop new feature for virtual instrumentation software. Written in C# using Windows Presentation Foundation."
                         ]
                     }
                 ]
@@ -10595,23 +10603,32 @@ const workExperienceHTML = workExperiencesTemplate(
                         positionTitle: "Software Engineer Intern",
                         timeFrame: "Summer 2014",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
+                            "Developed feature in a large codebase to record real-time metrics.",
+                            "Collaborated with a group of software engineers to aid in developing features in Java applications."
                         ]
                     },
                     {
                         positionTitle: "Software Engineer I",
-                        timeFrame: "May 2014 - May 2015",
+                        timeFrame: "May 2015 - May 2016",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-                            "Cras sed orci sit amet tortor condimentum egestas. Sed vehicula mollis eros, ut faucibus erat. Praesent in blandit erat, quis mattis magna. Etiam fringilla metus sit amet mollis pulvinar."
+                            "Developed features in Dropwizard Service-Oriented-Applications alongside team members."
                         ]
                     },
                     {
                         positionTitle: "Software Engineer II",
-                        timeFrame: "May 2015 - Current",
+                        timeFrame: "May 2016 - November 2017",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-                            "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel.",
+                            "Leading development of features requiring cross-team development",
+                            "Uncovered and fixed performance issues in Java applications and MongoDB clusters.",
+                            "Resource to help clients debug email authentication."
+                        ]
+                    },
+                    {
+                        positionTitle: "Senior Software Engineer",
+                        timeFrame: "November 2017 - Current",
+                        description: [
+                            "Lorem ipsum",
+                            "Lorem ipsum"
                         ]
                     },
                 ]
@@ -14268,7 +14285,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 var H = __webpack_require__(1);
-module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<div class=\"row\">");t.b("\n" + i);t.b("    <div class=\"col-md-12\">");t.b("\n" + i);t.b("        <h2>School</h2>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("</div>");t.b("\n");t.b("\n" + i);t.b("<div class=\"row\">");t.b("\n" + i);t.b("    <div class=\"col-md-2 text-center\">");t.b("\n" + i);t.b("            <span class=\"align-middle\">");t.b("\n" + i);t.b("                <img src=\"./images/");t.b(t.v(t.f("logoURL",c,p,0)));t.b("\" class=\"school-logo logo\" onmouseover=\"this.src='./images/");t.b(t.v(t.f("logoHoverURL",c,p,0)));t.b("';\" onmouseout=\"this.src='./images/");t.b(t.v(t.f("logoURL",c,p,0)));t.b("';\" />");t.b("\n" + i);t.b("            </span>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("    <div class=\"col-md-10\">");t.b("\n" + i);t.b("        <div class=\"row\">");t.b("\n" + i);t.b("            <div class=\"col-md-8\">");t.b("\n" + i);t.b("                <h4>");t.b(t.v(t.f("schoolName",c,p,0)));t.b("</h4>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("            <div class=\"col-md-4\">");t.b("\n" + i);t.b("                <div class=\"text-right\"><b>");t.b(t.v(t.f("timeFrame",c,p,0)));t.b("</b></div>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("        <div class=\"row\">");t.b("\n" + i);t.b("            <div class=\"col-md-12\">");t.b("\n" + i);t.b("                <ul>");t.b("\n" + i);if(t.s(t.f("description",c,p,1),c,p,0,794,850,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                    <li>");t.b(t.v(t.d(".",c,p,0)));t.b("</li>");t.b("\n" + i);});c.pop();}t.b("                </ul>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("    </div>");t.b("\n");t.b("\n" + i);t.b("</div>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<div class=\"row\">\n    <div class=\"col-md-12\">\n        <h2>School</h2>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-md-2 text-center\">\n            <span class=\"align-middle\">\n                <img src=\"./images/{{logoURL}}\" class=\"school-logo logo\" onmouseover=\"this.src='./images/{{logoHoverURL}}';\" onmouseout=\"this.src='./images/{{logoURL}}';\" />\n            </span>\n    </div>\n    <div class=\"col-md-10\">\n        <div class=\"row\">\n            <div class=\"col-md-8\">\n                <h4>{{schoolName}}</h4>\n            </div>\n            <div class=\"col-md-4\">\n                <div class=\"text-right\"><b>{{timeFrame}}</b></div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <ul>\n                    {{#description}}\n                    <li>{{.}}</li>\n                    {{/description}}\n                </ul>\n            </div>\n        </div>\n    </div>\n\n</div>\n", H);return T.render.apply(T, arguments); };
+module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<div class=\"row\">");t.b("\n" + i);t.b("    <div class=\"col-md-12\">");t.b("\n" + i);t.b("        <h2>Education</h2>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("</div>");t.b("\n");t.b("\n" + i);t.b("<div class=\"row\">");t.b("\n" + i);t.b("    <div class=\"col-md-2 text-center\">");t.b("\n" + i);t.b("            <span class=\"align-middle\">");t.b("\n" + i);t.b("                <img src=\"./images/");t.b(t.v(t.f("logoURL",c,p,0)));t.b("\" class=\"school-logo logo\" onmouseover=\"this.src='./images/");t.b(t.v(t.f("logoHoverURL",c,p,0)));t.b("';\" onmouseout=\"this.src='./images/");t.b(t.v(t.f("logoURL",c,p,0)));t.b("';\" />");t.b("\n" + i);t.b("            </span>");t.b("\n" + i);t.b("    </div>");t.b("\n" + i);t.b("    <div class=\"col-md-10\">");t.b("\n" + i);t.b("        <div class=\"row\">");t.b("\n" + i);t.b("            <div class=\"col-md-8\">");t.b("\n" + i);t.b("                <h4>");t.b(t.v(t.f("schoolName",c,p,0)));t.b("</h4>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("            <div class=\"col-md-4\">");t.b("\n" + i);t.b("                <div class=\"text-right\"><b>");t.b(t.v(t.f("timeFrame",c,p,0)));t.b("</b></div>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("        <div class=\"row\">");t.b("\n" + i);t.b("            <div class=\"col-md-12\">");t.b("\n" + i);t.b("                <div>");t.b("\n" + i);t.b("                    <b>");t.b(t.v(t.f("description",c,p,0)));t.b("</b>");t.b("\n" + i);t.b("                </div>");t.b("\n" + i);t.b("                <div>");t.b("\n" + i);t.b("                    <b>Relevant Coursework</b>");t.b("\n" + i);t.b("                </div>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("        <div class=\"row\">");t.b("\n" + i);t.b("            <div class=\"col-md-6\">");t.b("\n" + i);t.b("                <ul>");t.b("\n" + i);if(t.s(t.d("relevantCoursework.columnOne",c,p,1),c,p,0,1089,1145,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                    <li>");t.b(t.v(t.d(".",c,p,0)));t.b("</li>");t.b("\n" + i);});c.pop();}t.b("                </ul>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("            <div class=\"col-md-6\">");t.b("\n" + i);t.b("                <ul>");t.b("\n" + i);if(t.s(t.d("relevantCoursework.columnTwo",c,p,1),c,p,0,1329,1385,"{{ }}")){t.rs(c,p,function(c,p,t){t.b("                    <li>");t.b(t.v(t.d(".",c,p,0)));t.b("</li>");t.b("\n" + i);});c.pop();}t.b("                </ul>");t.b("\n" + i);t.b("            </div>");t.b("\n" + i);t.b("        </div>");t.b("\n" + i);t.b("    </div>");t.b("\n");t.b("\n" + i);t.b("</div>");t.b("\n");return t.fl(); },partials: {}, subs: {  }}, "<div class=\"row\">\n    <div class=\"col-md-12\">\n        <h2>Education</h2>\n    </div>\n</div>\n\n<div class=\"row\">\n    <div class=\"col-md-2 text-center\">\n            <span class=\"align-middle\">\n                <img src=\"./images/{{logoURL}}\" class=\"school-logo logo\" onmouseover=\"this.src='./images/{{logoHoverURL}}';\" onmouseout=\"this.src='./images/{{logoURL}}';\" />\n            </span>\n    </div>\n    <div class=\"col-md-10\">\n        <div class=\"row\">\n            <div class=\"col-md-8\">\n                <h4>{{schoolName}}</h4>\n            </div>\n            <div class=\"col-md-4\">\n                <div class=\"text-right\"><b>{{timeFrame}}</b></div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-12\">\n                <div>\n                    <b>{{description}}</b>\n                </div>\n                <div>\n                    <b>Relevant Coursework</b>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-6\">\n                <ul>\n                    {{#relevantCoursework.columnOne}}\n                    <li>{{.}}</li>\n                    {{/relevantCoursework.columnOne}}\n                </ul>\n            </div>\n            <div class=\"col-md-6\">\n                <ul>\n                    {{#relevantCoursework.columnTwo}}\n                    <li>{{.}}</li>\n                    {{/relevantCoursework.columnTwo}}\n                </ul>\n            </div>\n        </div>\n    </div>\n\n</div>\n", H);return T.render.apply(T, arguments); };
 
 /***/ }),
 /* 12 */

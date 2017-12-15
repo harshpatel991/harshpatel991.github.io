@@ -28,10 +28,20 @@ const schoolHTML = schoolTemplate({
     logoURL: "logo-uiuc-nohue.png",
     logoHoverURL: "logo-uiuc.png",
     timeFrame: "May 2011 - May 2015",
-    description: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-        "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel."
-    ]
+    description: "Bachelor of Science in Computer Science - 3.60 GPA",
+    relevantCoursework: {
+        columnOne: [
+            "Distributed Systems",
+            "Introduction to Data Mining",
+            "Cloud Computing",
+            "Computer Security I & II"
+        ],
+        columnTwo: [
+            "Database Systems",
+            "User Interface Design",
+            "Art and Science of Web Programming"
+        ]
+    }
 });
 
 const workExperienceHTML = workExperiencesTemplate(
@@ -46,9 +56,7 @@ const workExperienceHTML = workExperiencesTemplate(
                         positionTitle: "Software Engineer Intern",
                         timeFrame: "Summer 2013",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-                            "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel.",
-                            "Cras sed orci sit amet tortor condimentum egestas. Sed vehicula mollis eros, ut faucibus erat. Praesent in blandit erat, quis mattis magna. Etiam fringilla metus sit amet mollis pulvinar."
+                            "Collaborated with a group of software engineers to develop new feature for virtual instrumentation software. Written in C# using Windows Presentation Foundation."
                         ]
                     }
                 ]
@@ -62,23 +70,31 @@ const workExperienceHTML = workExperiencesTemplate(
                         positionTitle: "Software Engineer Intern",
                         timeFrame: "Summer 2014",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
+                            "Developed feature in a large codebase to record real-time metrics.",
+                            "Collaborated with a group of software engineers to aid in developing features in Java applications."
                         ]
                     },
                     {
                         positionTitle: "Software Engineer I",
-                        timeFrame: "May 2014 - May 2015",
+                        timeFrame: "May 2015 - May 2016",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-                            "Cras sed orci sit amet tortor condimentum egestas. Sed vehicula mollis eros, ut faucibus erat. Praesent in blandit erat, quis mattis magna. Etiam fringilla metus sit amet mollis pulvinar."
+                            "Developed features in Dropwizard Service-Oriented-Applications alongside team members."
                         ]
                     },
                     {
                         positionTitle: "Software Engineer II",
-                        timeFrame: "May 2015 - Current",
+                        timeFrame: "May 2016 - November 2017",
                         description: [
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non posuere dolor, eget facilisis diam. Praesent ut lacus at erat ullamcorper luctus sed ut metus. ",
-                            "Etiam aliquet, leo vitae porta hendrerit, ex ipsum congue nibh, ut placerat sem libero eget magna. Ut pellentesque sem dui, nec convallis augue sagittis vel.",
+                            "Leading development of features requiring cross-team development",
+                            "Uncovered and fixed performance issues in Java applications and MongoDB clusters."
+                        ]
+                    },
+                    {
+                        positionTitle: "Senior Software Engineer",
+                        timeFrame: "November 2017 - Current",
+                        description: [
+                            "Lorem ipsum",
+                            "Lorem ipsum"
                         ]
                     },
                 ]
