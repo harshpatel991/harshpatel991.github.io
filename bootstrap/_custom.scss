@@ -8,12 +8,11 @@
 .card {
   margin-top: 15px;
   margin-bottom: 15px;
+  box-shadow: 0 0 31px 1px #e4eaf3;
 }
 
-.image-wrapper {
-  background-color: #000;
-  height: 100%;
-  width: 100%;
+.card-image {
+  border-radius: 0.25rem;
 }
 
 .fade-on-hover {

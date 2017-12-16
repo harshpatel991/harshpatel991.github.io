@@ -66,7 +66,7 @@ body {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
-  color: #212529;
+  color: #434a50;
   text-align: left;
   background-color: #fff; }
 
@@ -1796,7 +1796,7 @@ tbody.collapse.show {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #212529;
+  color: #434a50;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -2553,7 +2553,7 @@ tbody.collapse.show {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #f8f8f8;
+  background-color: #fff;
   background-clip: border-box;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -3022,7 +3022,7 @@ tbody.collapse.show {
     text-decoration: none;
     background-color: #f8f9fa; }
   .list-group-item-action:active {
-    color: #212529;
+    color: #434a50;
     background-color: #e9ecef; }
 
 .list-group-item {
@@ -3527,7 +3527,7 @@ button.close {
 
 .popover-body {
   padding: 9px 14px;
-  color: #212529; }
+  color: #434a50; }
 
 .carousel {
   position: relative; }
@@ -5554,12 +5554,11 @@ a.text-dark:focus, a.text-dark:hover {
 
 .card {
   margin-top: 15px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  box-shadow: 0 0 31px 1px #e4eaf3; }
 
-.image-wrapper {
-  background-color: #000;
-  height: 100%;
-  width: 100%; }
+.card-image {
+  border-radius: 0.25rem; }
 
 .fade-on-hover {
   transition: opacity .25s ease-in;
