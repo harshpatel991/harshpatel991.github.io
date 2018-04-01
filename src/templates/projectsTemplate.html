@@ -6,24 +6,31 @@
     </div>
     <div class="row">
         {{#projectItems}}
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card" >
                     <a href="{{githubURL}}">
-
                         <img class="card-image card-img-top fade-on-hover" src="./images/{{previewImage}}" alt="Card image cap">
-
                     </a>
                     <div class="card-body">
                         <h4 class="card-title">{{projectName}}</h4>
-                        <h2>
-                            {{#tools}}
-                            <i class="{{.}} devicon" title="{{.}}"></i>
-                            {{/tools}}
-                        </h2>
+                        {{#tools}}
+                        <span class="h5 devicon">
+                            <span class="badge badge-secondary">{{displayName}}</span>
+                        </span>
+                        {{/tools}}
+
                         <p class="card-text">{{projectDescription}}</p>
-                        <a href="{{githubURL}}" class="btn btn-primary btn-block" target="_blank">Github &raquo;</a>
+                        <ul>
+                        {{#details}}
+                           <li>{{.}}</li>
+                        {{/details}}
+                        </ul>
+
+                        <div class="row">
+                        </div>
+                        <a href="{{githubURL}}" class="btn btn-primary" target="_blank">Github &raquo;</a>
                         {{#projectURL}}
-                            <a href="{{projectURL}}" class="btn btn-secondary btn-block" target="_blank">View &raquo;</a>
+                            <a href="{{projectURL}}" class="btn btn-secondary" target="_blank">View &raquo;</a>
                         {{/projectURL}}
                     </div>
                 </div>

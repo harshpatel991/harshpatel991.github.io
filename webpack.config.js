@@ -1,50 +1,49 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const webpack = require('webpack');
 const path = require('path');
 
-const sassLoader = ExtractTextPlugin.extract(['css-loader?sourceMap', 'sass-loader?sourceMap']);
-
-const config = {
-    entry: {
-        app: './index'
-    },
+module.exports = {
+    entry: './src/js/index.js',
     output: {
-        path: path.resolve('dist'),
-        filename: '[name].js?[hash]'
+        filename: './dist/app.js',
+        path: path.resolve(__dirname)
     },
     module: {
-        loaders: [
-            {
-                test: /\.(scss|sass)$/,
-                loader: sassLoader
-            },
+        rules: [
             {
                 test: /\.html$/,
                 loader: 'mustache-loader'
-            }
-        ]
-    },
-    plugins: [
-        new webpack.ProvidePlugin({
-            'jQuery': 'jquery',
-            'window.jQuery': 'jquery',
-            Popper: ['popper.js', 'default'],
-            'Tether': 'tether',
-            'window.Tether': 'tether',
-            Util: "exports-loader?Util!bootstrap/js/dist/util",
-            Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown"
-        }),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                context: __dirname,
-                postcss: [
-                    autoprefixer
+            },
+            {
+                test: /\.js$/,
+                include: path.resolve(__dirname, 'js'),
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['es2015', { modules: false }]
+                        ]
+                    }
+                }],
+            },
+            {
+                test: /\.(scss)$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function() {
+                                return [
+                                    require('precss'),
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },
+                    { loader: 'sass-loader' }
                 ]
-            }
-        }),
-        new ExtractTextPlugin("styles.css")
-    ]
-};
+            },
 
-module.exports = config;
+        ]
+    }
+};
