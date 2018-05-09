@@ -27,7 +27,7 @@
     "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server",
+    "start": "node_modules/.bin/webpack-dev-server --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,41 +1,40 @@
-{{#projects}}
-    <div class="row">
-        <div class="col-md-12">
-            <h2>{{title}}</h2>
-        </div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{title}}</h2>
     </div>
-    <div class="row">
-        {{#projectItems}}
-            <div class="col-md-6">
-                <div class="card" >
-                    <a href="{{githubURL}}">
-                        <img class="card-image card-img-top fade-on-hover" src="./images/{{previewImage}}" alt="Card image cap">
-                    </a>
-                    <div class="card-body">
-                        <h4 class="card-title">{{projectName}}</h4>
-                        {{#tools}}
-                        <span class="h5 devicon">
-                            <span class="badge badge-secondary">{{displayName}}</span>
-                        </span>
-                        {{/tools}}
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            {{#projectItems}}
+                <div class="col-md-6">
+                    <div class="card" >
+                        <a href="{{githubURL}}">
+                            <img class="card-image card-img-top fade-on-hover" src="./images/{{previewImage}}" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">{{projectName}}</h4>
+                            {{#tools}}
+                                <span class="h5 devicon">
+                                    <span class="badge badge-outline-secondary"><span class="icon {{icon}}"></span> {{displayName}}</span>
+                                </span>
+                            {{/tools}}
 
-                        <p class="card-text">{{projectDescription}}</p>
-                        <ul>
-                        {{#details}}
-                           <li>{{.}}</li>
-                        {{/details}}
-                        </ul>
+                            <p class="card-text">{{projectDescription}}</p>
+                            <ul>
+                            {{#details}}
+                               <li>{{.}}</li>
+                            {{/details}}
+                            </ul>
 
-                        <div class="row">
+                            <a href="{{githubURL}}" class="btn btn-primary" target="_blank">Github &raquo;</a>
+                            {{#projectURL}}
+                                <a href="{{projectURL}}" class="btn btn-dark-blue" target="_blank">View &raquo;</a>
+                            {{/projectURL}}
                         </div>
-                        <a href="{{githubURL}}" class="btn btn-primary" target="_blank">Github &raquo;</a>
-                        {{#projectURL}}
-                            <a href="{{projectURL}}" class="btn btn-secondary" target="_blank">View &raquo;</a>
-                        {{/projectURL}}
                     </div>
                 </div>
-            </div>
-        {{/projectItems}}
+            {{/projectItems}}
+        </div>
     </div>
-<hr>
-{{/projects}}
+</div>
