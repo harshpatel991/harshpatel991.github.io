@@ -78,37 +78,36 @@ const workExperienceHTML = workExperiencesTemplate(
                         positionTitle: "Software Engineer Intern",
                         timeFrame: "Summer 2014",
                         description: [
-                            "Added real-time metrics and alerting to a legacy monolithic Java Spring application. Metrics tracked various email types that the company sends to users along their lifecycle: queuing, scheduling, sending, and failures.",
-                            "Worked alongside a team of software engineers to develop features in new Dropwizard micro-service application for email templatization and sending."
+                            "Added real-time metrics and alerting to a legacy monolithic Java Spring application. Metrics tracked various emails the company sends along their lifecycle: queuing, scheduling, sending, and failures.",
                         ]
                     },
                     {
                         positionTitle: "Software Engineer I",
                         timeFrame: "May 2015 - May 2016",
                         description: [
-                            "Worked closely with QA team to refactor the team's integration test suite by splitting long-running tests into parallelized pieces, consolidating duplicated code, and removing obsolete tests.",
-                            "Implemented feature allow clients to send RSA encrypted email addresses in XML feeds, ensuring client's PII is not stored in plaintext on disk.",
+                            "Ensured client PII data was not stored in plaintext by implementing feature for clients to send RSA encrypted email addresses in XML feeds.",
+                            "Worked closely with QA team to refactor the team's integration test suite by splitting long-running tests into parallelized pieces, consolidating duplicated code, and removing obsolete tests."
                         ]
                     },
                     {
                         positionTitle: "Software Engineer II",
                         timeFrame: "May 2016 - November 2017",
                         description: [
-                            "Working with Product Management and developers from other teams, I led development of a client-facing email metrics dashboard. Tracks email sends, deliveries, bounces, complaints, opens, link clicks, unsubscribes, and subsequent conversions.",
-                            "Integrated new email sending application with Amazon SES, allowing the company to save 10x on email sending costs and significantly reducing the delays in integration testing.",
-                            "Uncovered and fixed performance issues in the team's MongoDB cluster allowing us to continue using cheaper servers",
-                            "Developed an Angular application to aid internal teams in debugging and modifying data through internal APIs",
-                            "Aided in integrating a functional test framework for all of the team's applications. Then, helped with converting flaky integration tests to functional tests."
+                            "Reduced email sending costs 10x and significantly reduced delays in integration testing by integrating email-sending application with Amazon SES.",
+                            "Led development of a client-facing email metrics dashboard tracking email sends, deliveries, bounces, complaints, opens, link clicks, unsubscribes, and subsequent conversions.",
+                            "Reduced peak CPU load 10-35% and saved 50% over purchasing more powerful servers by identifying and implementing fixes for performance issues in the team's MongoDB clusters.",
+                            "Reduced the number of troubleshooting questions asked by support teams by developing an Angular application using internal APIs.",
+                            "Collaborated in integrating a functional test framework in Dropwizard applications. Shaved hours off deployment preparation by replacing flaky and long-running integration tests with quick functional tests."
                         ]
                     },
                     {
                         positionTitle: "Senior Software Engineer",
                         timeFrame: "November 2017 - Current",
                         description: [
-                            "Led development of feature allowing clients to select time of day to send emails.",
-                            "Moved to a different team and led development of a React & Redux application for clients to configure product-wide settings",
+                            "Increased email engagement rate on average 10% by developing feature allowing clients to select time of day to send emails.",
+                            "Led development of a React & Redux application for clients to configure product-wide settings.",
                             "Migrated live application backend from Python Flask to Java Spring and integrated with a new client portal authentication.",
-                            "Aided in building new service to respond to GDPR data reporting and data clean up requests."
+                            "Collaborated in building new service to respond to the team's GDPR data reporting and data clean up requests."
                         ]
                     },
                 ]
@@ -124,7 +123,7 @@ const personalProjectsHTML = projectsTemplate(
             {
                 projectName: 'Roast My Game',
                 previewImage: "preview-roast-my-game.png",
-                projectDescription: 'I created this site after having trouble receiving feedback for games that I was developing. Indie game developers can sign up, add their game, and give and get feedback.',
+                projectDescription: 'I created this site after having trouble receiving feedback for games that I was developing. Game developers can sign up, add their game, and give and get feedback.',
                 details: ['There have been over 1000 users sign up, 400 games posted, and 1500 roasts made', 'Users earn points for listing their game and giving roasts', 'Users can upload game files for others to download and play', 'Browser integration testing performed with Codeception and Selenium' ],
                 tools: [tools["laravel"], tools["mysql"], tools["elasticbeanstalk"], tools["rds"], tools["less"], tools["bootstrap"]],
                 githubURL: "https://github.com/harshpatel991/Roast-My-Game",
@@ -134,7 +133,7 @@ const personalProjectsHTML = projectsTemplate(
                 projectName: 'News Tab',
                 previewImage: "preview-news-tab.png",
                 projectDescription: 'I created this RSS feed reader for Chrome\'s new tab page after I was unable to find an existing one that was quick and resource-light.',
-                details: ['2x faster than Chrome\'s default new tab page', 'Users can configure their feed by language and topic', 'Shows user\'s most visited sites', 'Shows current weather and forecast', 'All settings synced to the user\'s Chrome profile', 'Users can upload their own theme image, stored in persistent LocalFileSystem'],
+                details: ['2x faster than Chrome\'s default new tab page', '500 active users', 'Users can configure their feed by language and topic', 'Shows user\'s most visited sites', 'Shows current weather and forecast', 'All settings synced to the user\'s Chrome profile', 'Users can upload their own theme image, stored in persistent LocalFileSystem'],
                 tools: [tools["javascript"], tools["bootstrap"], tools["jquery"]],
                 githubURL: "https://github.com/harshpatel991/News-Tab",
                 projectURL: "https://chrome.google.com/webstore/detail/news-tab-new-tab-page-rep/cdpnmcehklcfepflojdklfggahnaolid"
@@ -184,7 +183,7 @@ const schoolProjectsHTML = projectsTemplate(
                 projectName: 'Checkin Children',
                 previewImage: "preview-checkin-children.png",
                 projectDescription: 'A multi-tenant SaaS for daycare managers, employees, and customers.',
-                details: ['Daycare employees can check-in children', 'Daycare can notify parents via text and email when children are not present', 'Parents can verify child was dropped off'],
+                details: ['Full management of a daycare center including owners, managers, employees, parents, and children', 'Daycare employees can check-in children', 'Daycare can notify parents via text and email when children are not present', 'Parents can verify child was dropped off'],
                 tools: [tools["php"], tools["mysql"], tools["bootstrap"], tools["jquery"]],
                 githubURL: "https://github.com/harshpatel991/CheckinChildren"
             },
@@ -192,7 +191,7 @@ const schoolProjectsHTML = projectsTemplate(
                 projectName: 'City Clicker',
                 previewImage: "preview-city-clickr.png",
                 projectDescription: 'A 3D world building clicker game.',
-                details: [ 'Money will collect even when the game isn\'t running', 'Each building can be upgraded with 3+ items and 3+ employee types', 'Cars and pedestrians stop for each other'],
+                details: [ 'Time flows in the game even when the game isn\'t running', 'Each building can be upgraded with 3+ items and 3+ employee types', 'Cars and pedestrians will intelligently wait for each other when approaching an intersection'],
                 tools: [tools["unity"], tools["unityscript"], tools["blender"]],
                 githubURL: "https://github.com/harshpatel991/CityClicker/"
             }
