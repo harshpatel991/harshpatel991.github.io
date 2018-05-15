@@ -250,3 +250,6 @@ document.getElementById('work-experiences-container').innerHTML = workExperience
 document.getElementById('personal-projects-container').innerHTML = personalProjectsHTML;
 document.getElementById('school-projects-container').innerHTML = schoolProjectsHTML;
 document.getElementById('skills-container').innerHTML = skillsHTML;
+
+//now that rendering is complete, show the entire body
+$('body').show(0);
