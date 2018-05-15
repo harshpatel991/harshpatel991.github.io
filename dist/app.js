@@ -13127,6 +13127,8 @@ document.getElementById('personal-projects-container').innerHTML = personalProje
 document.getElementById('school-projects-container').innerHTML = schoolProjectsHTML;
 document.getElementById('skills-container').innerHTML = skillsHTML;
 
+//now that rendering is complete, show the entire body
+$('body').show(0);
 
 /***/ }),
 /* 4 */
