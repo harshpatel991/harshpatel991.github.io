@@ -1,8 +1,39 @@
+.code-theme {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 .jumbotron {
+  padding: 5rem 2rem;
+  border-radius: 0;
+  min-height: 350px;
+}
+
+.code-theme .jumbotron {
+  background: #f3f3f3;
+  color: $body-color;
+
+  .display-4 {
+    font-size: 40px;
+  }
+
+  .header-h2 {
+    font-size: 25px;
+  }
+}
+
+.pretty-theme .jumbotron {
   background: #2b5876;
   background: -webkit-linear-gradient(to right, #4c8cc2, #7467ab);
   background: linear-gradient(to right, #4c8cc2, #7467ab);
-  border-radius: 0;
+  color: #ffffff;
+
+  .display-4 {
+    font-size: 55px;
+  }
+
+  .header-h2 {
+    font-size: 30px;
+  }
 }
 
 .section-container {
@@ -75,11 +106,6 @@
   max-width: 60%;
 }
 
-.jumbotron {
-  color: #ffffff;
-  padding: 5rem 2rem;
-}
-
 .header-h2 {
   font-weight: 100;
 }
@@ -88,8 +114,32 @@
   margin-right: 10px;
 }
 
+.bg-dark {
+  background-color: #243249 !important;
+}
+
 footer {
   margin-top: 50px;
   padding: 80px 0;
-  background-color: #242e3e;
+  background-color: #243249;
+}
+
+pre {
+  border-radius: 0.55rem;
+  background: #243249 !important;
+  padding: 10px;
+}
+
+// Prism.js
+.token.property {
+  color: #ff5b5b !important;
+  font-weight: bold;
+}
+
+.token.string {
+  color: #ffffff !important;
+}
+
+.token.punctuation {
+  color: #fff !important;;
 }

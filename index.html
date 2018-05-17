@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="dist/devicon.css">
     <link rel="stylesheet" href="dist/iconmoon.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
     <title>Harsh Patel | Software Engineer</title>
 </head>
 <body style="display: none;"> <!--inline this style to ensure it is applied instantly-->
@@ -30,19 +31,28 @@
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-4">Hi, my name is Harsh. I'm a software engineer.</h1>
-        <!--<h2 class="header-h2">I develop in Java, PHP, and Javascript</h2>-->
         <h2 class="header-h2">I'm passionate about creating things that are performant and beautiful.</h2>
-        <p><a class="btn btn-primary btn-lg" href="/static/pdf/Resume.pdf" role="button">Download PDF Resume</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/static/pdf/Resume.pdf" role="button" id="download-resume">Download PDF Resume</a></p>
     </div>
 </div>
 
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-lg-8">
+            <div class="btn btn-light btn-sm float-right" id="toggle-theme">Switch It Up</div>
+            <div class="row"><div class="col-md-12"><h2>Education</h2></div></div>
             <div id="school-container" class="section-container">Loading...</div>
+
+            <div class="row"><div class="col-md-12"><h2>Work Experience</h2></div></div>
             <div id="work-experiences-container" class="section-container">Loading...</div>
+
+            <div class="row"><div class="col-md-12"><h2>Personal Projects</h2></div></div>
             <div id="personal-projects-container" class="section-container">Loading...</div>
+
+            <div class="row"><div class="col-md-12"><h2>University Projects</h2></div></div>
             <div id="school-projects-container" class="section-container">Loading...</div>
+
+            <div class="row"><div class="col-md-12"><h2>Skills</h2></div></div>
             <div id="skills-container" class="section-container">Loading...</div>
         </div>
     </div>
