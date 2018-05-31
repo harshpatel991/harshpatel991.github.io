@@ -90,17 +90,17 @@ const workExperienceData =
                     timeFrame: "May 2015 - May 2016",
                     description: [
                         "Ensured client PII data was not stored in plaintext by implementing feature for clients to send RSA encrypted email addresses in XML feeds.",
-                        "Worked closely with QA team to refactor the team's integration test suite by splitting long-running tests into parallelized pieces, consolidating duplicated code, and removing obsolete tests."
+                        "Worked closely with QA team to refactor the team's Java integration test suite."
                     ]
                 },
                 {
                     positionTitle: "Software Engineer II",
                     timeFrame: "May 2016 - November 2017",
                     description: [
-                        "Reduced email sending costs 10x and significantly reduced delays in integration testing by integrating email-sending application with Amazon SES.",
+                        "Reduced email sending costs 10x and significantly reduced delays in testing by integrating Java micro-service application with Amazon SES.",
                         "Led development of a client-facing email metrics dashboard tracking email sends, deliveries, bounces, complaints, opens, link clicks, unsubscribes, and subsequent conversions.",
-                        "Reduced peak CPU load 10-35% and saved 50% over purchasing more powerful servers by identifying and implementing fixes for performance issues in the team's MongoDB clusters.",
-                        "Reduced the number of troubleshooting questions asked by support teams by developing an Angular application using internal APIs.",
+                        "Reduced peak CPU load 10-35% by identifying and implementing fixes for performance issues in the team's MongoDB clusters.",
+                        "Reduced the number of troubleshooting questions asked by support teams by developing Angular application using internal APIs.",
                         "Collaborated in integrating a functional test framework in Dropwizard applications. Shaved hours off deployment preparation by replacing flaky and long-running integration tests with quick functional tests."
                     ]
                 },
@@ -111,7 +111,7 @@ const workExperienceData =
                         "Increased email engagement rate on average 10% by developing feature allowing clients to select time of day to send emails.",
                         "Led development of a React & Redux application for clients to configure product-wide settings.",
                         "Migrated live application backend from Python Flask to Java Spring and integrated with a new client portal authentication.",
-                        "Collaborated in building new service to respond to the team's GDPR data reporting and data clean up requests."
+                        "Collaborated in building new micro-service to respond to the team's GDPR data reporting and data clean up requests."
                     ]
                 },
             ]
@@ -126,7 +126,7 @@ const personalProjectsData =
             projectName: 'Roast My Game',
             previewImage: "preview-roast-my-game.png",
             projectDescription: 'I created this site after having trouble receiving feedback for games that I was developing. Game developers can sign up, add their game, and give and get feedback.',
-            details: ['There have been over 1000 users sign up, 400 games posted, and 1500 roasts made', 'Users earn points for listing their game and giving roasts', 'Users can upload game files for others to download and play', 'Browser integration testing performed with Codeception and Selenium' ],
+            details: ['There have been over 1000 users sign up, 400 games posted, and 1500 roasts made', 'Users earn points for listing their game and giving roasts', 'Users can upload game files for others to download and play', 'SSL Certificate with Lets Encrypt and certbot' ],
             tools: [tools["laravel"], tools["mysql"], tools["elasticbeanstalk"], tools["rds"], tools["less"], tools["bootstrap"]],
             githubURL: "https://github.com/harshpatel991/Roast-My-Game",
             projectURL: "https://roastmygame.com/"
