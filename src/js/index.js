@@ -3,8 +3,7 @@ window.$ = window.jQuery = require('jquery');
 window.Popper = require('popper.js');
 require('bootstrap');
 require ('../bootstrap/bootstrap.scss');
-const Prism = require('prismjs');
-require('prismjs/components/index.js')(['json']);
+const hljs = require('highlight.js');
 
 const codeTemplate = require('../templates/code/template.html');
 const prettySchoolTemplate = require('../templates/pretty/schoolTemplate.html');
@@ -40,7 +39,7 @@ const schoolData =
     logoURL: "logo-uiuc-nohue.png",
     logoHoverURL: "logo-uiuc.png",
     timeFrame: "May 2011 - May 2015",
-    description: "Bachelor of Science in Computer Science",
+    description: "Bachelor of Science in Computer Science With Honors",
     relevantCoursework: {
         columnOne: [
             "Distributed Systems",
@@ -288,7 +287,9 @@ function render() {
             schoolProjectsContainer.html(codeTemplate({this: JSON.stringify(schoolProjectsData, null, 2)}));
             skillsContainer.html(codeTemplate({this: JSON.stringify(skillsData, null, 2)}));
 
-            Prism.highlightAll();
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
             body.fadeIn(200);
         });
     }

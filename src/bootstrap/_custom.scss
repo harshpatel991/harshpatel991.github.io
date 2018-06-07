@@ -130,16 +130,16 @@ pre {
   padding: 10px;
 }
 
-// Prism.js
-.token.property {
-  color: #ff5b5b !important;
+// hljs
+.hljs {
+  color: #ffffff;
+}
+
+.hljs-attr {
+  color: #ff5b5b;
   font-weight: bold;
 }
 
-.token.string {
-  color: #ffffff !important;
-}
-
-.token.punctuation {
-  color: #fff !important;;
+.hljs-string {
+  color: #ffffff;
 }
