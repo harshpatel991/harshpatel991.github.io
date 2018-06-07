@@ -258,6 +258,7 @@ var schoolProjectsContainer = $('#school-projects-container');
 var skillsContainer = $('#skills-container');
 
 function render() {
+    $('#toggle-theme').prop("disabled", true);
     if (pretty) {
         body.fadeOut(200,function(){
             body.removeClass('code-theme');
@@ -293,6 +294,7 @@ function render() {
             body.fadeIn(200);
         });
     }
+    $('#toggle-theme').prop("disabled", false);
 }
 
 render();
