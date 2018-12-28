@@ -12981,7 +12981,7 @@ const workExperienceData =
                 },
                 {
                     positionTitle: "Senior Software Engineer",
-                    timeFrame: "November 2017 - Current",
+                    timeFrame: "November 2017 - August 2018",
                     description: [
                         "Increased email engagement rate on average 10% by developing feature allowing clients to select time of day to send emails.",
                         "Led development of a React & Redux application for clients to configure product-wide settings.",
@@ -12990,7 +12990,21 @@ const workExperienceData =
                     ]
                 },
             ]
-        }
+        },
+        {
+            companyName: "Neighborhoods.com",
+            logoURL: "logo-neighborhoods-nohue.png",
+            logoHoverURL: "logo-neighborhoods.png",
+            positions: [
+                {
+                    positionTitle: "Software Engineer",
+                    timeFrame: "August 2018 - Current",
+                    description: [
+                        "Developing PHP services"
+                    ]
+                }
+            ]
+        },
     ]
 };
 
