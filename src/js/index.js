@@ -59,15 +59,43 @@ const workExperienceData =
 {
     workExperiences: [
         {
-            companyName: "National Instruments",
-            logoURL: "logo-national-instruments-nohue.png",
-            logoHoverURL: "logo-national-instruments.png",
+            companyName: "Rocket Auto",
+            logoURL: "logo-rocket-nohue.png",
+            logoHoverURL: "logo-rocket.png",
             positions: [
                 {
-                    positionTitle: "Software Engineer Intern",
-                    timeFrame: "Summer 2013",
+                    positionTitle: "Engineering Team Lead",
+                    timeFrame: "February 2022 - Current",
                     description: [
-                        "Collaborated with a group of software engineers to develop shape drawing feature for virtual instrumentation software. Written in C# using Windows Presentation Foundation."
+                        "Managed a team of 5 software engineers in development and delivery of varying features in React (Typescript) & GraphQL Node.js API applications.",
+                        "Worked with leaders and stakeholders across the organization to define scope, communicate timelines, and ensure alignment with business objectives.",
+                        "Built team culture of quality code, monitoring, testing, ownership, and innovation. Collaborated with team to create key metrics and goals to support culture.",
+                        "Individually coached team members through achieving goals, earning promotions, and managing change."
+                    ]
+                }
+            ]
+        },
+        {
+            companyName: "Neighborhoods.com",
+            logoURL: "logo-neighborhoods-nohue.png",
+            logoHoverURL: "logo-neighborhoods.png",
+            positions: [
+                {
+                    positionTitle: "Engineering Team Lead",
+                    timeFrame: "August 2021 - February 2022",
+                    description: [
+                        "Managed a team of 6 software engineers in developing features for lead submission microservices and Salesforce application.",
+                        "Created and peer reviewed architecture proposals to ensure new features were fault tolerant and scalable and met business requirements."
+                    ]
+                },
+                {
+                    positionTitle: "Software Engineer",
+                    timeFrame: "August 2018 - August 2021",
+                    description: [
+                        "Architected and implemented microservices in modern object-oriented PHP using Postgres DB running on AWS and Kubernetes. Services spanned multiple business sectors such as email/push notification sending, automated Google Ads purchasing, and highly available APIs for user-facing website content.",
+                        "Worked directly with Apple engineers to ETL neighborhoods and community data to be displayed on Apple Maps.",
+                        "Owned a company-wide monitoring migration from NewRelic to Datadog with a strict deadline. Included building an open source library for all of our backend engineers to use, migration guide, presentations to the engineering team, and keeping all teams within timeline.",
+                        "Pioneered and evangelized automated testing strategy for the engineering organization. Created a testing library and defined a pattern for running tests in CI for 10+ microservices used by 4 internal development teams."
                     ]
                 }
             ]
@@ -78,18 +106,13 @@ const workExperienceData =
             logoHoverURL: "logo-bazaarvoice.png",
             positions: [
                 {
-                    positionTitle: "Software Engineer Intern",
-                    timeFrame: "Summer 2014",
+                    positionTitle: "Senior Software Engineer",
+                    timeFrame: "November 2017 - August 2018",
                     description: [
-                        "Added real-time metrics and alerting to a legacy monolithic Java Spring application. Metrics tracked various emails the company sends along their lifecycle: queuing, scheduling, sending, and failures.",
-                    ]
-                },
-                {
-                    positionTitle: "Software Engineer I",
-                    timeFrame: "May 2015 - May 2016",
-                    description: [
-                        "Ensured client PII data was not stored in plaintext by implementing feature for clients to send RSA encrypted email addresses in XML feeds.",
-                        "Worked closely with QA team to refactor the team's Java integration test suite."
+                        "Increased email engagement rate on average 10% by developing feature allowing clients to select time of day to send emails.",
+                        "Led development of a React & Redux application for clients to configure product-wide settings.",
+                        "Migrated live application backend from Python Flask to Java Spring and integrated with a new client portal authentication.",
+                        "Collaborated in building new micro-service to respond to the team's GDPR data reporting and data clean up requests."
                     ]
                 },
                 {
@@ -104,31 +127,36 @@ const workExperienceData =
                     ]
                 },
                 {
-                    positionTitle: "Senior Software Engineer",
-                    timeFrame: "November 2017 - August 2018",
+                    positionTitle: "Software Engineer I",
+                    timeFrame: "May 2015 - May 2016",
                     description: [
-                        "Increased email engagement rate on average 10% by developing feature allowing clients to select time of day to send emails.",
-                        "Led development of a React & Redux application for clients to configure product-wide settings.",
-                        "Migrated live application backend from Python Flask to Java Spring and integrated with a new client portal authentication.",
-                        "Collaborated in building new micro-service to respond to the team's GDPR data reporting and data clean up requests."
+                        "Ensured client PII data was not stored in plaintext by implementing feature for clients to send RSA encrypted email addresses in XML feeds.",
+                        "Worked closely with QA team to refactor the team's Java integration test suite."
                     ]
                 },
-            ]
-        },
-        {
-            companyName: "Neighborhoods.com",
-            logoURL: "logo-neighborhoods-nohue.png",
-            logoHoverURL: "logo-neighborhoods.png",
-            positions: [
                 {
-                    positionTitle: "Software Engineer",
-                    timeFrame: "August 2018 - Current",
+                    positionTitle: "Software Engineer Intern",
+                    timeFrame: "Summer 2014",
                     description: [
-                        "Developing PHP services"
+                        "Added real-time metrics and alerting to a legacy monolithic Java Spring application. Metrics tracked various emails the company sends along their lifecycle: queuing, scheduling, sending, and failures.",
                     ]
                 }
             ]
         },
+        {
+            companyName: "National Instruments",
+            logoURL: "logo-national-instruments-nohue.png",
+            logoHoverURL: "logo-national-instruments.png",
+            positions: [
+                {
+                    positionTitle: "Software Engineer Intern",
+                    timeFrame: "Summer 2013",
+                    description: [
+                        "Collaborated with a group of software engineers to develop shape drawing feature for virtual instrumentation software. Written in C# using Windows Presentation Foundation."
+                    ]
+                }
+            ]
+        }
     ]
 };
 
@@ -152,6 +180,15 @@ const personalProjectsData =
             tools: [tools["javascript"], tools["bootstrap"], tools["jquery"]],
             githubURL: "https://github.com/harshpatel991/News-Tab",
             projectURL: "https://chrome.google.com/webstore/detail/news-tab-new-tab-page-rep/cdpnmcehklcfepflojdklfggahnaolid"
+        },
+        {
+            projectName: 'Marble Metrics',
+            previewImage: "preview-marble-metrics.png",
+            projectDescription: 'A Google Analytics alternative that is GDPR, CCPA, and PECR compliant. Fully hosted in the EU by an EU hosting provider.',
+            details: ['Fully open-source', 'Dockerized containers', 'Deployed on the EU-hosting-provider Stackhero', 'Tracks pageviews, visitors, bounce rate, and visit duration without fingerprinting users'],
+            tools: [tools["react"], tools["php"], tools["javascript"], tools["postgres"]],
+            githubURL: "https://github.com/marblemetrics/marblemetrics",
+            projectURL: "https://marblemetrics.com/"
         },
         {
             projectName: 'Topic Loop',
